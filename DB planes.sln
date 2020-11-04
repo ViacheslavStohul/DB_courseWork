@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB planes", "DB planes\DB planes.csproj", "{7FF528D2-89CA-4EFA-B075-560C15E7D743}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16C1543A-71E3-40CE-B46A-C47A091DE1A0}"
+	ProjectSection(SolutionItems) = preProject
+		DB planes\bin\Debug\CourseWork.mdf = DB planes\bin\Debug\CourseWork.mdf
+		DB planes\bin\Debug\CourseWork_log.ldf = DB planes\bin\Debug\CourseWork_log.ldf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

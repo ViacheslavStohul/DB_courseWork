@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.My_tickets_label = new System.Windows.Forms.Label();
+            this.orderLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(227, 12);
+            this.button1.Location = new System.Drawing.Point(211, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -42,33 +44,63 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // label2
             // 
-            this.button2.Location = new System.Drawing.Point(104, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(150, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "label2";
+            // 
+            // My_tickets_label
+            // 
+            this.My_tickets_label.AutoSize = true;
+            this.My_tickets_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.My_tickets_label.Location = new System.Drawing.Point(106, 109);
+            this.My_tickets_label.Name = "My_tickets_label";
+            this.My_tickets_label.Size = new System.Drawing.Size(90, 20);
+            this.My_tickets_label.TabIndex = 3;
+            this.My_tickets_label.Text = "Мої квитки";
+            this.My_tickets_label.MouseEnter += new System.EventHandler(this.My_tickets_label_MouseEnter);
+            this.My_tickets_label.MouseLeave += new System.EventHandler(this.My_tickets_label_MouseLeave);
+            // 
+            // orderLabel
+            // 
+            this.orderLabel.AutoSize = true;
+            this.orderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.orderLabel.Location = new System.Drawing.Point(76, 73);
+            this.orderLabel.Name = "orderLabel";
+            this.orderLabel.Size = new System.Drawing.Size(141, 20);
+            this.orderLabel.TabIndex = 1;
+            this.orderLabel.Text = "Замовити квитки";
+            this.orderLabel.Click += new System.EventHandler(this.orderLabel_Click);
+            this.orderLabel.MouseEnter += new System.EventHandler(this.orderLabel_MouseEnter);
+            this.orderLabel.MouseLeave += new System.EventHandler(this.orderLabel_MouseLeave);
             // 
             // Menu_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 292);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(294, 224);
+            this.Controls.Add(this.My_tickets_label);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.orderLabel);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu_form";
             this.Text = "Головне меню";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label My_tickets_label;
+        private System.Windows.Forms.Label orderLabel;
     }
 }
