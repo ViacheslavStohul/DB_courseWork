@@ -7,7 +7,7 @@ using System.Data.Linq.Mapping;
 
 namespace DB_planes
 {
-    [Table(Name = "Flights")]
+    [Table(Name = "Liners")]
     class Liners
     {
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]

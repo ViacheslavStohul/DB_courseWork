@@ -72,5 +72,10 @@ namespace DB_planes
         {
             label1.ForeColor = Color.Black;
         }
+
+        private void My_tickets_label_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

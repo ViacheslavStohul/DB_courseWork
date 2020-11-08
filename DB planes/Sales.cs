@@ -19,8 +19,11 @@ namespace DB_planes
         [Column(IsPrimaryKey = true)]
         public int Flight_Number { get; set; }
 
-        [Column(IsPrimaryKey = true)]
-        public int Plane_Number { get; set; }
+        [Column]
+        public string First_Name { get; set; }
+
+        [Column]
+        public string Last_Name { get; set; }
 
         [Column]
         public DateTime Sale_Date { get; set; }
@@ -33,5 +36,8 @@ namespace DB_planes
 
         [Column]
         public DateTime TakeOff_Date { get; set; }
+
+        [Column]
+        public int Sum { get; set; }
     }
 }

@@ -16,10 +16,13 @@ namespace DB_planes
         public int Plane_Number { get; set; }
 
         [Column]
-        public DateTime TakeOff_Date { get; set; }
+        public DateTime TakeOff_Time { get; set; }
 
         [Column]
-        public DateTime Landing_Date { get; set; }
+        public DateTime Landing_Time { get; set; }
+
+        [Column]
+        public string Periodicity { get; set; }
 
         [Column]
         public string TakeOff_City { get; set; }

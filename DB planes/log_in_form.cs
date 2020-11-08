@@ -37,13 +37,17 @@ namespace DB_planes
             var query = (from u in users
                          where u.Username == login_box.Text
                          && u.Password == password_box.Text
-                         select u).ToList();
+                         select u).ToList() ;
 
             if (query.Count == 0)
                 MessageBox.Show("Невірний логін або пароль ", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             else
             {
+                foreach (var i in query)
+                {
+                    start_form.ChangeData(i.Username);
+                }
                 Menu_form menu = new Menu_form();
                 menu.Show();
                 Visible = false;

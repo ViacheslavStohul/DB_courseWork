@@ -29,12 +29,28 @@ namespace DB_planes
         {
             DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
             Table<Flights> flight = db.GetTable<Flights>();
+            Table<Liners> liners = db.GetTable<Liners>();
 
-            var query = from data in flight
-                        select data;
+            var query = from f in flight
+                        join l in liners on f.Plane_Number equals l.Board_Number
+                        select new
+                        {
+                            f.Flight_Number,
+                            f.Plane_Number,
+                            f.TakeOff_Time,
+                            f.TakeOff_City,
+                            f.Landing_Time,
+                            f.Periodicity,
+                            f.Landing_City,
+                            l.FirstClass_cost,
+                            l.SecondClass_cost,
+                            l.business_cost
+                        };
+
             foreach (var data in query)
             {
-                dataGridView1.Rows.Add(data.Flight_Number, data.Plane_Number, data.TakeOff_Date, data.TakeOff_City, data.Landing_Date, data.Landing_City).ToString();
+                dataGridView1.Rows.Add(data.Flight_Number, data.Periodicity, data.business_cost, data.FirstClass_cost, data.SecondClass_cost, data.Plane_Number, data.TakeOff_Time.TimeOfDay,
+                    data.TakeOff_City, data.Landing_Time.TimeOfDay, data.Landing_City).ToString();
             }
         }
     }

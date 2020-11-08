@@ -66,6 +66,7 @@
             this.My_tickets_label.Size = new System.Drawing.Size(138, 29);
             this.My_tickets_label.TabIndex = 3;
             this.My_tickets_label.Text = "Мої квитки";
+            this.My_tickets_label.Click += new System.EventHandler(this.My_tickets_label_Click);
             this.My_tickets_label.MouseEnter += new System.EventHandler(this.My_tickets_label_MouseEnter);
             this.My_tickets_label.MouseLeave += new System.EventHandler(this.My_tickets_label_MouseLeave);
             // 
