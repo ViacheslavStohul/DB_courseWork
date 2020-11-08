@@ -32,13 +32,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.My_tickets_label = new System.Windows.Forms.Label();
             this.orderLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 12);
+            this.button1.Location = new System.Drawing.Point(316, 18);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(112, 35);
             this.button1.TabIndex = 0;
             this.button1.Text = "Вийти";
             this.button1.UseVisualStyleBackColor = true;
@@ -47,9 +49,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 183);
+            this.label2.Location = new System.Drawing.Point(349, 275);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
@@ -57,9 +60,10 @@
             // 
             this.My_tickets_label.AutoSize = true;
             this.My_tickets_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.My_tickets_label.Location = new System.Drawing.Point(106, 109);
+            this.My_tickets_label.Location = new System.Drawing.Point(154, 204);
+            this.My_tickets_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.My_tickets_label.Name = "My_tickets_label";
-            this.My_tickets_label.Size = new System.Drawing.Size(90, 20);
+            this.My_tickets_label.Size = new System.Drawing.Size(138, 29);
             this.My_tickets_label.TabIndex = 3;
             this.My_tickets_label.Text = "Мої квитки";
             this.My_tickets_label.MouseEnter += new System.EventHandler(this.My_tickets_label_MouseEnter);
@@ -69,26 +73,41 @@
             // 
             this.orderLabel.AutoSize = true;
             this.orderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.orderLabel.Location = new System.Drawing.Point(76, 73);
+            this.orderLabel.Location = new System.Drawing.Point(118, 84);
+            this.orderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.orderLabel.Name = "orderLabel";
-            this.orderLabel.Size = new System.Drawing.Size(141, 20);
+            this.orderLabel.Size = new System.Drawing.Size(213, 29);
             this.orderLabel.TabIndex = 1;
             this.orderLabel.Text = "Замовити квитки";
             this.orderLabel.Click += new System.EventHandler(this.orderLabel_Click);
             this.orderLabel.MouseEnter += new System.EventHandler(this.orderLabel_MouseEnter);
             this.orderLabel.MouseLeave += new System.EventHandler(this.orderLabel_MouseLeave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(137, 146);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 29);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Список рейсів";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseEnter += new System.EventHandler(this.label1_MouseEnter);
+            this.label1.MouseLeave += new System.EventHandler(this.label1_MouseLeave);
+            // 
             // Menu_form
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 224);
+            this.ClientSize = new System.Drawing.Size(441, 345);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.My_tickets_label);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.orderLabel);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Menu_form";
             this.Text = "Головне меню";
             this.ResumeLayout(false);
@@ -102,5 +121,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label My_tickets_label;
         private System.Windows.Forms.Label orderLabel;
+        private System.Windows.Forms.Label label1;
     }
 }

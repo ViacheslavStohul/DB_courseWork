@@ -12,6 +12,25 @@ namespace DB_planes
 {
     public partial class start_form : Form
     {
+        private static string CurrentUser;
+        private static string CurrentData;
+
+        public static string GetCurrentData()
+        {
+            return CurrentData;
+        }
+
+        public static string GetCurrentUser()
+        {
+            return CurrentUser;
+        }
+
+        public static void ChangeData(string User, string Data)
+        {
+            CurrentData = Data;
+            CurrentUser = User;
+        }
+
         public start_form()
         {
             InitializeComponent();

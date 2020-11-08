@@ -51,12 +51,12 @@ namespace DB_planes
             {
                 SqlConnection SqlCon = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
                 SqlCon.Open();
-                SqlCommand addcom = new SqlCommand("INSERT INTO [Users] ([Username],[Password],[First_Name],[Last_Name],[Date_of_birth])VALUES(@username,@passsword,@first_name,@last_name,@Date_of_birth)", SqlCon);
+                SqlCommand addcom = new SqlCommand("INSERT INTO [Users] ([Username],[Password],[First_Name],[Last_Name],[Age])VALUES(@username,@passsword,@first_name,@last_name,@Age)", SqlCon);
                 addcom.Parameters.AddWithValue("username", Username_TextBox.Text);
                 addcom.Parameters.AddWithValue("passsword", Password_TextBox.Text);
                 addcom.Parameters.AddWithValue("first_name", FirstName_TextBox.Text);
                 addcom.Parameters.AddWithValue("last_name", LastName_TextBox.Text);
-                addcom.Parameters.AddWithValue("Date_of_birth", Date_of_Birth_TextBox.Text);
+                addcom.Parameters.AddWithValue("Age", Convert.ToInt32(Date_of_Birth_TextBox.Text));
                 addcom.ExecuteNonQuery();
                 SqlCon.Close();
                 MessageBox.Show("Користувач успішно зареєстрований", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);

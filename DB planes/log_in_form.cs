@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Linq;
 
 namespace DB_planes
 {
@@ -30,21 +31,23 @@ namespace DB_planes
 
         private void log_in_button_Click(object sender, EventArgs e)
         {
-            SqlConnection SqlCon = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
-            SqlCon.Open();
-            SqlCommand command = new SqlCommand("SELECT * FROM [Users] WHERE [Username] = " + "\'" + login_box.Text +"\'" + " AND [Password] =" + "\'" + password_box.Text + "\'", SqlCon);
-            SqlDataReader Readsql = command.ExecuteReader();
-            if (!Readsql.HasRows)
-            {
+            DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
+            Table<User> users = db.GetTable<User>();
+
+            var query = (from u in users
+                         where u.Username == login_box.Text
+                         && u.Password == password_box.Text
+                         select u).ToList();
+
+            if (query.Count == 0)
                 MessageBox.Show("Невірний логін або пароль ", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
             else
             {
                 Menu_form menu = new Menu_form();
                 menu.Show();
                 Visible = false;
             }
-            SqlCon.Close();
         }
 
         private void back_button_MouseEnter(object sender, EventArgs e)

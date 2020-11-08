@@ -131,11 +131,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(292, 222);
+            this.label5.Location = new System.Drawing.Point(337, 222);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(273, 20);
+            this.label5.Size = new System.Drawing.Size(158, 20);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Дата народження (не обов\'язково)";
+            this.label5.Text = "Вік (не обов\'язково)";
             // 
             // Date_of_Birth_TextBox
             // 

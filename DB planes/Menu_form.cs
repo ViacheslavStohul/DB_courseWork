@@ -28,20 +28,11 @@ namespace DB_planes
             }
         }
 
-        private void orderLabel_MouseEnter(object sender, EventArgs e)
-        {
-            orderLabel.ForeColor = Color.Blue;
-        }
-
         private void My_tickets_label_MouseEnter(object sender, EventArgs e)
         {
             My_tickets_label.ForeColor = Color.Blue;
         }
 
-        private void orderLabel_MouseLeave(object sender, EventArgs e)
-        {
-            orderLabel.ForeColor = Color.Black;
-        }
 
         private void My_tickets_label_MouseLeave(object sender, EventArgs e)
         {
@@ -53,6 +44,33 @@ namespace DB_planes
             tickets_order_form order = new tickets_order_form();
             order.Show();
             Visible = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            FlightsForm flights = new FlightsForm();
+            flights.Show();
+            Visible = false;
+        }
+
+        private void orderLabel_MouseEnter(object sender, EventArgs e)
+        {
+            orderLabel.ForeColor = Color.Blue;
+        }
+
+        private void orderLabel_MouseLeave(object sender, EventArgs e)
+        {
+            orderLabel.ForeColor = Color.Black;
+        }
+
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Blue;
+        }
+
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            label1.ForeColor = Color.Black;
         }
     }
 }
