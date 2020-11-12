@@ -13,11 +13,11 @@ namespace DB_planes
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int User_Id { get; set; }
 
-        [Column(IsPrimaryKey = true)]
+        [Column]
         public string Username { get; set; }
 
         [Column]
-        public string Control_Level { get; set; }
+        public int Control_Level { get; set; }
 
         [Column]
         public string Password { get; set; }

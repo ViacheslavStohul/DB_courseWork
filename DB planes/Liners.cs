@@ -14,7 +14,7 @@ namespace DB_planes
         public int Board_Number { get; set; }
 
         [Column(IsPrimaryKey = true)]
-        public int Type { get; set; }
+        public string Type { get; set; }
 
         [Column]
         public DateTime Last_check { get; set; }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Linq;
 
 namespace DB_planes
 {
@@ -75,7 +76,40 @@ namespace DB_planes
 
         private void My_tickets_label_Click(object sender, EventArgs e)
         {
+            My_Tickets_Form form = new My_Tickets_Form();
+            form.Show();
+            Visible = false;
+        }
 
+        private void Menu_form_Load(object sender, EventArgs e)
+        {
+            DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
+            var query = from u in db.GetTable<User>()
+                        where u.Username == start_form.GetCurrentUser()
+                        select u;
+
+            foreach(var data in query)
+            {
+                if (Convert.ToInt32(data.Control_Level) > 2)
+                    label2.Visible = true;
+            }
+        }
+
+        private void label2_MouseEnter(object sender, EventArgs e)
+        {
+            label2.ForeColor = Color.Blue;
+        }
+
+        private void label2_MouseLeave(object sender, EventArgs e)
+        {
+            label2.ForeColor = Color.Black;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            AdminMenu menua = new AdminMenu();
+            menua.Show();
+            Visible = false;
         }
     }
 }

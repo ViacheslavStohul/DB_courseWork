@@ -19,6 +19,9 @@ namespace DB_planes
         [Column(IsPrimaryKey = true)]
         public int Flight_Number { get; set; }
 
+        [Column(IsPrimaryKey = true)]
+        public int Plane_Number { get; set; }
+
         [Column]
         public string First_Name { get; set; }
 
@@ -30,9 +33,6 @@ namespace DB_planes
 
         [Column]
         public string Seat_Type { get; set; }
-
-        [Column]
-        public string Discont_Category { get; set; }
 
         [Column]
         public DateTime TakeOff_Date { get; set; }

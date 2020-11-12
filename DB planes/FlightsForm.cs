@@ -14,6 +14,7 @@ namespace DB_planes
 {
     public partial class FlightsForm : Form
     {
+        DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
         public FlightsForm()
         {
             InitializeComponent();
@@ -21,13 +22,43 @@ namespace DB_planes
 
         private void my_orders_form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Menu_form menu = new Menu_form();
-            menu.Visible = true;
+            Table<User> users = db.GetTable<User>();
+
+            var GetUser = from u in users
+                          where u.Username == start_form.GetCurrentUser()
+                          select u;
+
+            foreach (var data in GetUser)
+            {
+                if (data.Control_Level > 2)
+                {
+                    AdminMenu menu = new AdminMenu();
+                    menu.Visible = true;
+                }
+                else
+                {
+                    Menu_form menu = new Menu_form();
+                    menu.Visible = true;
+                }
+            }
         }
 
         private void FlightsForm_Load(object sender, EventArgs e)
         {
-            DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
+            Table<User> users = db.GetTable<User>();
+
+            var GetUser = from u in users
+                          where u.Username == start_form.GetCurrentUser()
+                          select u;
+
+            foreach(var data in GetUser)
+            {
+                if (data.Control_Level > 2)
+                {
+                    dataGridView1.ReadOnly = false;
+                }
+            }
+
             Table<Flights> flight = db.GetTable<Flights>();
             Table<Liners> liners = db.GetTable<Liners>();
 

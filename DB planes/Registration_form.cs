@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using System.Data.Linq;
 
 namespace DB_planes
 {
@@ -49,18 +49,35 @@ namespace DB_planes
 
             else
             {
-                SqlConnection SqlCon = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
-                SqlCon.Open();
-                SqlCommand addcom = new SqlCommand("INSERT INTO [Users] ([Username],[Password],[First_Name],[Last_Name],[Age])VALUES(@username,@passsword,@first_name,@last_name,@Age)", SqlCon);
-                addcom.Parameters.AddWithValue("username", Username_TextBox.Text);
-                addcom.Parameters.AddWithValue("passsword", Password_TextBox.Text);
-                addcom.Parameters.AddWithValue("first_name", FirstName_TextBox.Text);
-                addcom.Parameters.AddWithValue("last_name", LastName_TextBox.Text);
-                addcom.Parameters.AddWithValue("Age", Convert.ToInt32(Date_of_Birth_TextBox.Text));
-                addcom.ExecuteNonQuery();
-                SqlCon.Close();
+                DataContext db = new DataContext(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
+                Table<User> user = db.GetTable<User>();
+
+                User newUser = new User
+                {
+                    Username = Username_TextBox.Text,
+                    Control_Level = 1,
+                    Password = Password_TextBox.Text,
+                    First_Name = FirstName_TextBox.Text,
+                    Last_Name = LastName_TextBox.Text,
+                    age = Convert.ToInt32(Date_of_Birth_TextBox.Text)
+                };
+
+                user.InsertOnSubmit(newUser);
+                db.SubmitChanges();
+
                 MessageBox.Show("Користувач успішно зареєстрований", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Close();
+
+                //SqlConnection SqlCon = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=" + @Environment.CurrentDirectory + "\\CourseWork.mdf" + @";Integrated Security = True");
+                //SqlCon.Open();
+                //SqlCommand addcom = new SqlCommand("INSERT INTO [Users] ([Username], [][Password],[First_Name],[Last_Name],[Age])VALUES(@username,@passsword,@first_name,@last_name,@Age)", SqlCon);
+                //addcom.Parameters.AddWithValue("username", Username_TextBox.Text);
+                //addcom.Parameters.AddWithValue("passsword", Password_TextBox.Text);
+                //addcom.Parameters.AddWithValue("first_name", FirstName_TextBox.Text);
+                //addcom.Parameters.AddWithValue("last_name", LastName_TextBox.Text);
+                //addcom.Parameters.AddWithValue("Age", Convert.ToInt32(Date_of_Birth_TextBox.Text));
+                //addcom.ExecuteNonQuery();
+                //SqlCon.Close();
             }
         }
 

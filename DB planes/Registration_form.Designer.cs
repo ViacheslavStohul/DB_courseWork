@@ -133,9 +133,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(337, 222);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
+            this.label5.Size = new System.Drawing.Size(31, 20);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Вік (не обов\'язково)";
+            this.label5.Text = "Вік";
             // 
             // Date_of_Birth_TextBox
             // 
@@ -193,7 +193,7 @@
             this.Controls.Add(this.Username_TextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.back_button);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Registration_form";
             this.Text = "Реєстрація";
